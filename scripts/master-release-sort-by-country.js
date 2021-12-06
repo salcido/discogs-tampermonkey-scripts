@@ -28,13 +28,13 @@
             });
         });
     }
-    
+    const SORT_ORDER = '?sort=country&sort_order=';
     // General /master/ links on any page
     const links = [...document.querySelectorAll('a')];
     
     links.forEach(link => {
         if (link.href.includes('/master/')) {
-         link.href += '?sort=country&sort_order=';
+         link.href += SORT_ORDER;
         }
     });
     
@@ -43,7 +43,7 @@
         const releasePageLinks = [...document.querySelectorAll('a')];
         releasePageLinks.forEach(link => {
             if (link.href.includes('/master/')) {
-             link.href += '?sort=country&sort_order=';
+             link.href += SORT_ORDER;
             }
         });
     })
