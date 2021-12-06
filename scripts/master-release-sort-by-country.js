@@ -31,18 +31,18 @@
     const SORT_ORDER = '?sort=country&sort_order=';
     // General /master/ links on any page
     const links = [...document.querySelectorAll('a')];
-    
+
     links.forEach(link => {
-        if (link.href.includes('/master/')) {
+        if (link.href.includes('/master/') && !link.href.includes(SORT_ORDER)) {
          link.href += SORT_ORDER;
         }
     });
-    
+
     // Release page specific /master/ links
     waitForElement('#release-other-versions').then(() => {
         const releasePageLinks = [...document.querySelectorAll('a')];
         releasePageLinks.forEach(link => {
-            if (link.href.includes('/master/')) {
+            if (link.href.includes('/master/') && !link.href.includes(SORT_ORDER)) {
              link.href += SORT_ORDER;
             }
         });
