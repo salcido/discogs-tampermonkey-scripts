@@ -39,7 +39,7 @@
     });
 
     // Release page specific /master/ links
-    waitForElement('#release-other-versions').then(() => {
+    waitForElement('#release-other-versions a').then(() => {
         const releasePageLinks = [...document.querySelectorAll('a')];
         releasePageLinks.forEach(link => {
             if (link.href.includes('/master/') && !link.href.includes(SORT_ORDER)) {
