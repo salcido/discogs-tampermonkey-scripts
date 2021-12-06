@@ -1,7 +1,7 @@
 # discogs-tampermonkey-scripts
 Various [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) Scripts I've written for users asking for features that aren't available in Discogs Enhancer.
 
-### How to use them
+## How to use them
 
 - Install [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
 - Open the Tampermonkey extension menu and click "Create new script..."
@@ -19,3 +19,16 @@ Various [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dh
 
 - Go to Discogs and it should run automatically
 - If you run into issues ping me in the [Discogs Enhancer group](https://www.discogs.com/group/9136) or shoot me an email
+
+---
+
+## What they do
+
+### • hide-recommendations-on-release-page.js
+Hides the recommendations section on the Release page.
+
+### • master-release-sort-by-country.js
+Adds the default sort by country parameter to all Master Release links.
+
+### • show-for-sale-items-in-inventory.js
+Shows items with For Sale status first in your inventory and sets the max items per page to 1000.
