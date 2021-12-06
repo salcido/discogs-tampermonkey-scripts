@@ -9,10 +9,42 @@
 // ==/UserScript==
 (function() {
     'use strict';
+    function waitForElement(selector) {
+        return new Promise(resolve => {
+            if (document.querySelector(selector)) {
+                return resolve(document.querySelector(selector));
+            }
+
+            let observer = new MutationObserver(() => {
+                if (document.querySelector(selector)) {
+                    resolve(document.querySelector(selector));
+                    observer.disconnect();
+                }
+            });
+
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        });
+    }
+    
+    // General /master/ links on any page
     const links = [...document.querySelectorAll('a')];
+    
     links.forEach(link => {
         if (link.href.includes('/master/')) {
          link.href += '?sort=country&sort_order=';
         }
     });
+    
+    // Release page specific /master/ links
+    waitForElement('#release-other-versions').then(() => {
+        const releasePageLinks = [...document.querySelectorAll('a')];
+        releasePageLinks.forEach(link => {
+            if (link.href.includes('/master/')) {
+             link.href += '?sort=country&sort_order=';
+            }
+        });
+    })
 })();
