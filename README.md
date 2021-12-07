@@ -24,11 +24,11 @@ Various [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dh
 
 ## What they do
 
-### • hide-recommendations-on-release-page.js
+### 🔘 [hide-recommendations-on-release-page.js](https://github.com/salcido/discogs-tampermonkey-scripts/blob/master/scripts/hide-recommendations-on-release-page.js)
 Hides the recommendations section on the Release page.
 
-### • master-release-sort-by-country.js
+### 🔘 [master-release-sort-by-country.js](https://github.com/salcido/discogs-tampermonkey-scripts/blob/master/scripts/master-release-sort-by-country.js)
 Adds the default sort by country parameter to all Master Release links.
 
-### • show-for-sale-items-in-inventory.js
+### 🔘 [show-for-sale-items-in-inventory.js](https://github.com/salcido/discogs-tampermonkey-scripts/blob/master/scripts/show-for-sale-items-in-inventory.js)
 Shows items with For Sale status first in your inventory and sets the max items per page to 1000.
