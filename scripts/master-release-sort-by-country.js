@@ -44,7 +44,7 @@
     }
 
     function addSearchListener() {
-      int = setInterval(modifyLinks, 500);
+      int = setInterval(modifyLinks, 250);
     }
 
     function removeSearchListener() {
