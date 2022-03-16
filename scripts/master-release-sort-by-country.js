@@ -57,6 +57,7 @@
     // Release page specific /master/ links
     waitForElement('#release-other-versions a').then(() => modifyLinks())
 
+    // Search Bar Results
     const target = document.querySelector('#app') ? '[class*="search_"] input' : '#search_q';
 
     document.querySelector(target).addEventListener('focus', addSearchListener, true);
