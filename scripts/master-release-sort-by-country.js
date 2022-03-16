@@ -9,6 +9,7 @@
 // ==/UserScript==
 (function() {
     'use strict';
+
     function waitForElement(selector) {
         return new Promise(resolve => {
             if (document.querySelector(selector)) {
@@ -28,23 +29,36 @@
             });
         });
     }
-    const SORT_ORDER = '?sort=country&sort_order=';
-    // General /master/ links on any page
-    const links = [...document.querySelectorAll('a')];
 
-    links.forEach(link => {
-        if (link.href.includes('/master/') && !link.href.includes(SORT_ORDER)) {
-         link.href += SORT_ORDER;
-        }
-    });
+    const SORT_ORDER = '?sort=country&sort_order=';
+    let int;
+
+    function modifyLinks() {
+      const searchResultsLinks = [...document.querySelectorAll('a')];
+
+      searchResultsLinks.forEach(link => {
+          if (link.href.includes('/master/') && !link.href.includes(SORT_ORDER)) {
+            link.href += SORT_ORDER;
+          }
+      });
+    }
+
+    function addSearchListener() {
+      int = setInterval(modifyLinks, 500);
+    }
+
+    function removeSearchListener() {
+      clearInterval(int);
+    }
+
+    // General /master/ links on any page
+    modifyLinks();
 
     // Release page specific /master/ links
-    waitForElement('#release-other-versions a').then(() => {
-        const releasePageLinks = [...document.querySelectorAll('a')];
-        releasePageLinks.forEach(link => {
-            if (link.href.includes('/master/') && !link.href.includes(SORT_ORDER)) {
-             link.href += SORT_ORDER;
-            }
-        });
-    })
-})();
+    waitForElement('#release-other-versions a').then(() => modifyLinks())
+
+    const target = document.querySelector('#app') ? '[class*="search_"] input' : '#search_q';
+
+    document.querySelector(target).addEventListener('focus', addSearchListener, true);
+    document.querySelector(target).addEventListener('blur', removeSearchListener, true);
+  })();
