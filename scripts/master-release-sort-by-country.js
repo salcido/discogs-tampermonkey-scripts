@@ -34,9 +34,9 @@
     let int;
 
     function modifyLinks() {
-      const searchResultsLinks = [...document.querySelectorAll('a')];
+      const links = [...document.querySelectorAll('a')];
 
-      searchResultsLinks.forEach(link => {
+      links.forEach(link => {
           if (link.href.includes('/master/') && !link.href.includes(SORT_ORDER)) {
             link.href += SORT_ORDER;
           }
