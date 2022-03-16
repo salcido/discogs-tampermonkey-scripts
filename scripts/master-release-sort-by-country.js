@@ -38,7 +38,21 @@
 
       links.forEach(link => {
           if (link.href.includes('/master/') && !link.href.includes(SORT_ORDER)) {
-            link.href += SORT_ORDER;
+
+            const regex = /(\d+)$/gm;
+            // This is to deal with a redirect bug in Discogs where query paramters are not
+            // maintained after the redirect occurs
+            if ( link.href.match(regex) ) {
+                const url = link.href.split('/');
+                const artist = url[url.length - 3];
+                const master = url[url.length - 2];
+                const id = url[url.length - 1];
+                // Assemble new URL
+                const newURL = `/${master}/${id}-${artist}`
+                link.href = newURL + SORT_ORDER
+            } else {
+                link.href += SORT_ORDER;
+            }
           }
       });
     }
