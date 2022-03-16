@@ -42,6 +42,7 @@
             const regex = /(\d+)$/gm;
             // This is to deal with a redirect bug in Discogs where query paramters are not
             // maintained after the redirect occurs
+            // https://www.discogs.com/group/thread/912187?page=1#9412085
             if ( link.href.match(regex) ) {
                 const url = link.href.split('/');
                 const artist = url[url.length - 3];
