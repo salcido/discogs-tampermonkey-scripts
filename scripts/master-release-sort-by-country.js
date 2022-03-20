@@ -37,7 +37,9 @@
       const links = [...document.querySelectorAll('a')];
 
       links.forEach(link => {
-          if (link.href.includes('/master/') && !link.href.includes(SORT_ORDER)) {
+          if (link.href.includes('/master/')
+                && !link.href.includes(SORT_ORDER)
+                && !link.href.includes('/edit/')) {
 
             const regex = /(\d+)$/gm;
             // This is to deal with a redirect bug in Discogs where query paramters are not
